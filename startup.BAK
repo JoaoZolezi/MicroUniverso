@@ -1,0 +1,20 @@
+SET MULTILOCKS ON
+SET STATUS BAR OFF
+SET EXACT ON
+SET DATE DMY
+SET DELE ON
+SET SAFETY OFF
+SET SYSM AUTOMATIC
+SET TALK OFF
+SET CONFIRM ON
+SET CURSOR ON
+SET EXCLUSIVE OFF
+SET SYSMENU OFF
+sai = .F. && variavel que controla a saída do sistema
+
+_Screen.WindowState = 2
+*_screen.Visible = .f.  
+SET SYSM TO DEFA
+SET CONSOLE OFF 
+
+DO FORM c:\Projetos\MicroUniverso\login
