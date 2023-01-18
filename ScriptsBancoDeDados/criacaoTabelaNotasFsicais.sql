@@ -8,7 +8,7 @@ CREATE TABLE [dbo].[NOTAS_FISCAIS_ENTRADAS](
 	[NF_ENTRADA] [varchar](10) NOT NULL,
 	[SERIE_NF_ENTRADA] [varchar](2) NOT NULL,
 	[FORNECEDOR] [varchar](50) NOT NULL,
-	[EMISSAO] [datetime] NULL,
+	[EMISSAO] [date] NULL,
 	[VALOR_MERCADORIAS] [numeric](14, 2) NULL,
 	[VALOR_DESCONTO] [numeric](14, 2) NULL,
 	[VALOR_FRETE] [numeric](14, 2) NULL,
