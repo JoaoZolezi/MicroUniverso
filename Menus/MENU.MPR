@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 16/01/2023             MENU.MPR               13:32:33  
+*       * 19/01/2023             MENU.MPR               07:19:46  
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -26,30 +26,34 @@
 SET SYSMENU TO
 SET SYSMENU AUTOMATIC
 
-DEFINE PAD _6ix0t0yav OF _MSYSMENU PROMPT "Cadastro Usuário" COLOR SCHEME 3 ;
+DEFINE PAD _6j00fpk1o OF _MSYSMENU PROMPT "Cadastro Usuário" COLOR SCHEME 3 ;
 	KEY ALT+C, ""
-DEFINE PAD _6ix0t0yaw OF _MSYSMENU PROMPT "Aprovação Nota Compra" COLOR SCHEME 3 ;
+DEFINE PAD _6j00fpk1p OF _MSYSMENU PROMPT "Aprovação Nota Compra" COLOR SCHEME 3 ;
 	KEY ALT+A, ""
-DEFINE PAD _6ix0t0yax OF _MSYSMENU PROMPT "Sair" COLOR SCHEME 3 ;
+DEFINE PAD _6j00fpk1q OF _MSYSMENU PROMPT "Sair" COLOR SCHEME 3 ;
 	KEY ALT+S, ""
-ON SELECTION PAD _6ix0t0yav OF _MSYSMENU ;
-	DO _6ix0t0yay ;
+ON SELECTION PAD _6j00fpk1o OF _MSYSMENU ;
+	DO _6j00fpk1r ;
 	IN LOCFILE("..\PROJETOS\MICROUNIVERSO\MENUS\MENU" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENU?")
-ON PAD _6ix0t0yaw OF _MSYSMENU ACTIVATE POPUP aprovaçãon
-ON SELECTION PAD _6ix0t0yax OF _MSYSMENU ;
-	DO _6ix0t0yaz ;
+ON PAD _6j00fpk1p OF _MSYSMENU ACTIVATE POPUP aprovaçãon
+ON SELECTION PAD _6j00fpk1q OF _MSYSMENU ;
+	DO _6j00fpk1s ;
 	IN LOCFILE("..\PROJETOS\MICROUNIVERSO\MENUS\MENU" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENU?")
 
 DEFINE POPUP aprovaçãon MARGIN RELATIVE SHADOW COLOR SCHEME 4
 DEFINE BAR 1 OF aprovaçãon PROMPT "Faixa Vistos Aprovacoes"
+DEFINE BAR 2 OF aprovaçãon PROMPT "Aprovacao Notas Fiscais"
 ON SELECTION BAR 1 OF aprovaçãon ;
-	DO _6ix0t0yb0 ;
+	DO _6j00fpk1t ;
+	IN LOCFILE("..\PROJETOS\MICROUNIVERSO\MENUS\MENU" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENU?")
+ON SELECTION BAR 2 OF aprovaçãon ;
+	DO _6j00fpk1u ;
 	IN LOCFILE("..\PROJETOS\MICROUNIVERSO\MENUS\MENU" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENU?")
 
 
 *       *********************************************************
 *       *                                                         
-*       * _6IX0T0YAY  ON SELECTION PAD                            
+*       * _6J00FPK1R  ON SELECTION PAD                            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -60,31 +64,31 @@ ON SELECTION BAR 1 OF aprovaçãon ;
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _6ix0t0yay
+PROCEDURE _6j00fpk1r
 DO FORM \Projetos\MicroUniverso\Forms\CadastroUsuario
 
 
 *       *********************************************************
 *       *                                                         
-*       * _6IX0T0YAZ  ON SELECTION PAD                            
+*       * _6J00FPK1S  ON SELECTION PAD                            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
-*       * From Menu:  MENU.MPR,            Record:    7           
+*       * From Menu:  MENU.MPR,            Record:    8           
 *       * Called By:  ON SELECTION PAD                            
 *       * Prompt:     Sair                                        
 *       * Snippet:    2                                           
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _6ix0t0yaz
+PROCEDURE _6j00fpk1s
 CLEAR EVENTS
 QUIT
 
 
 *       *********************************************************
 *       *                                                         
-*       * _6IX0T0YB0  ON SELECTION BAR 1 OF POPUP aprovaçãon      
+*       * _6J00FPK1T  ON SELECTION BAR 1 OF POPUP aprovaçãon      
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -95,5 +99,22 @@ QUIT
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _6ix0t0yb0
+PROCEDURE _6j00fpk1t
 DO FORM \Projetos\MicroUniverso\Forms\FaixaValoresVistosAprovacoes
+
+
+*       *********************************************************
+*       *                                                         
+*       * _6J00FPK1U  ON SELECTION BAR 2 OF POPUP aprovaçãon      
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MENU.MPR,            Record:    7           
+*       * Called By:  ON SELECTION BAR 2 OF POPUP aprovaçãon      
+*       * Prompt:     Aprovacao Notas Fiscais                     
+*       * Snippet:    4                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _6j00fpk1u
+DO FORM \Projetos\MicroUniverso\Forms\movimentacaonotasfiscais
