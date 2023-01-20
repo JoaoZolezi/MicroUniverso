@@ -1,0 +1,5 @@
+servidor:DESKTOP-16L6GL3;
+usuario:SA;
+Banco:microuniverso;
+Senha:zeppelin;
+

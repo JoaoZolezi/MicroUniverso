@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 19/01/2023             MENU.MPR               07:19:46  
+*       * 20/01/2023             MENU.MPR               18:07:22  
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -26,34 +26,34 @@
 SET SYSMENU TO
 SET SYSMENU AUTOMATIC
 
-DEFINE PAD _6j00fpk1o OF _MSYSMENU PROMPT "Cadastro Usuário" COLOR SCHEME 3 ;
+DEFINE PAD _6j112ucwe OF _MSYSMENU PROMPT "Cadastro Usuário" COLOR SCHEME 3 ;
 	KEY ALT+C, ""
-DEFINE PAD _6j00fpk1p OF _MSYSMENU PROMPT "Aprovação Nota Compra" COLOR SCHEME 3 ;
-	KEY ALT+A, ""
-DEFINE PAD _6j00fpk1q OF _MSYSMENU PROMPT "Sair" COLOR SCHEME 3 ;
+DEFINE PAD _6j112ucwf OF _MSYSMENU PROMPT "Vistos/Aprovações Notas Fiscais" COLOR SCHEME 3 ;
+	KEY ALT+V, ""
+DEFINE PAD _6j112ucwg OF _MSYSMENU PROMPT "Sair" COLOR SCHEME 3 ;
 	KEY ALT+S, ""
-ON SELECTION PAD _6j00fpk1o OF _MSYSMENU ;
-	DO _6j00fpk1r ;
+ON SELECTION PAD _6j112ucwe OF _MSYSMENU ;
+	DO _6j112ucwh ;
 	IN LOCFILE("..\PROJETOS\MICROUNIVERSO\MENUS\MENU" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENU?")
-ON PAD _6j00fpk1p OF _MSYSMENU ACTIVATE POPUP aprovaçãon
-ON SELECTION PAD _6j00fpk1q OF _MSYSMENU ;
-	DO _6j00fpk1s ;
+ON PAD _6j112ucwf OF _MSYSMENU ACTIVATE POPUP vistosapro
+ON SELECTION PAD _6j112ucwg OF _MSYSMENU ;
+	DO _6j112ucwi ;
 	IN LOCFILE("..\PROJETOS\MICROUNIVERSO\MENUS\MENU" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENU?")
 
-DEFINE POPUP aprovaçãon MARGIN RELATIVE SHADOW COLOR SCHEME 4
-DEFINE BAR 1 OF aprovaçãon PROMPT "Faixa Vistos Aprovacoes"
-DEFINE BAR 2 OF aprovaçãon PROMPT "Aprovacao Notas Fiscais"
-ON SELECTION BAR 1 OF aprovaçãon ;
-	DO _6j00fpk1t ;
+DEFINE POPUP vistosapro MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF vistosapro PROMPT "Faixa Vistos Aprovacoes"
+DEFINE BAR 2 OF vistosapro PROMPT "Aprovacao Notas Fiscais"
+ON SELECTION BAR 1 OF vistosapro ;
+	DO _6j112ucwj ;
 	IN LOCFILE("..\PROJETOS\MICROUNIVERSO\MENUS\MENU" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENU?")
-ON SELECTION BAR 2 OF aprovaçãon ;
-	DO _6j00fpk1u ;
+ON SELECTION BAR 2 OF vistosapro ;
+	DO _6j112ucwk ;
 	IN LOCFILE("..\PROJETOS\MICROUNIVERSO\MENUS\MENU" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENU?")
 
 
 *       *********************************************************
 *       *                                                         
-*       * _6J00FPK1R  ON SELECTION PAD                            
+*       * _6J112UCWH  ON SELECTION PAD                            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -64,13 +64,13 @@ ON SELECTION BAR 2 OF aprovaçãon ;
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _6j00fpk1r
+PROCEDURE _6j112ucwh
 DO FORM \Projetos\MicroUniverso\Forms\CadastroUsuario
 
 
 *       *********************************************************
 *       *                                                         
-*       * _6J00FPK1S  ON SELECTION PAD                            
+*       * _6J112UCWI  ON SELECTION PAD                            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -81,40 +81,40 @@ DO FORM \Projetos\MicroUniverso\Forms\CadastroUsuario
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _6j00fpk1s
+PROCEDURE _6j112ucwi
 CLEAR EVENTS
 QUIT
 
 
 *       *********************************************************
 *       *                                                         
-*       * _6J00FPK1T  ON SELECTION BAR 1 OF POPUP aprovaçãon      
+*       * _6J112UCWJ  ON SELECTION BAR 1 OF POPUP vistosapro      
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
 *       * From Menu:  MENU.MPR,            Record:    6           
-*       * Called By:  ON SELECTION BAR 1 OF POPUP aprovaçãon      
+*       * Called By:  ON SELECTION BAR 1 OF POPUP vistosapro      
 *       * Prompt:     Faixa Vistos Aprovacoes                     
 *       * Snippet:    3                                           
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _6j00fpk1t
+PROCEDURE _6j112ucwj
 DO FORM \Projetos\MicroUniverso\Forms\FaixaValoresVistosAprovacoes
 
 
 *       *********************************************************
 *       *                                                         
-*       * _6J00FPK1U  ON SELECTION BAR 2 OF POPUP aprovaçãon      
+*       * _6J112UCWK  ON SELECTION BAR 2 OF POPUP vistosapro      
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
 *       * From Menu:  MENU.MPR,            Record:    7           
-*       * Called By:  ON SELECTION BAR 2 OF POPUP aprovaçãon      
+*       * Called By:  ON SELECTION BAR 2 OF POPUP vistosapro      
 *       * Prompt:     Aprovacao Notas Fiscais                     
 *       * Snippet:    4                                           
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _6j00fpk1u
+PROCEDURE _6j112ucwk
 DO FORM \Projetos\MicroUniverso\Forms\movimentacaonotasfiscais
