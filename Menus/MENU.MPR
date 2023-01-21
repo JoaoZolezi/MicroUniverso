@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 20/01/2023             MENU.MPR               18:07:22  
+*       * 21/01/2023             MENU.MPR               11:52:54  
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -26,34 +26,34 @@
 SET SYSMENU TO
 SET SYSMENU AUTOMATIC
 
-DEFINE PAD _6j112ucwe OF _MSYSMENU PROMPT "Cadastro Usuário" COLOR SCHEME 3 ;
+DEFINE PAD _6j20pgt46 OF _MSYSMENU PROMPT "Cadastro Usuário" COLOR SCHEME 3 ;
 	KEY ALT+C, ""
-DEFINE PAD _6j112ucwf OF _MSYSMENU PROMPT "Vistos/Aprovações Notas Fiscais" COLOR SCHEME 3 ;
+DEFINE PAD _6j20pgt47 OF _MSYSMENU PROMPT "Vistos/Aprovações Notas Fiscais" COLOR SCHEME 3 ;
 	KEY ALT+V, ""
-DEFINE PAD _6j112ucwg OF _MSYSMENU PROMPT "Sair" COLOR SCHEME 3 ;
+DEFINE PAD _6j20pgt48 OF _MSYSMENU PROMPT "Sair" COLOR SCHEME 3 ;
 	KEY ALT+S, ""
-ON SELECTION PAD _6j112ucwe OF _MSYSMENU ;
-	DO _6j112ucwh ;
+ON SELECTION PAD _6j20pgt46 OF _MSYSMENU ;
+	DO _6j20pgt49 ;
 	IN LOCFILE("..\PROJETOS\MICROUNIVERSO\MENUS\MENU" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENU?")
-ON PAD _6j112ucwf OF _MSYSMENU ACTIVATE POPUP vistosapro
-ON SELECTION PAD _6j112ucwg OF _MSYSMENU ;
-	DO _6j112ucwi ;
+ON PAD _6j20pgt47 OF _MSYSMENU ACTIVATE POPUP vistosapro
+ON SELECTION PAD _6j20pgt48 OF _MSYSMENU ;
+	DO _6j20pgt4a ;
 	IN LOCFILE("..\PROJETOS\MICROUNIVERSO\MENUS\MENU" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENU?")
 
 DEFINE POPUP vistosapro MARGIN RELATIVE SHADOW COLOR SCHEME 4
 DEFINE BAR 1 OF vistosapro PROMPT "Faixa Vistos Aprovacoes"
 DEFINE BAR 2 OF vistosapro PROMPT "Aprovacao Notas Fiscais"
 ON SELECTION BAR 1 OF vistosapro ;
-	DO _6j112ucwj ;
+	DO _6j20pgt4b ;
 	IN LOCFILE("..\PROJETOS\MICROUNIVERSO\MENUS\MENU" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENU?")
 ON SELECTION BAR 2 OF vistosapro ;
-	DO _6j112ucwk ;
+	DO _6j20pgt4c ;
 	IN LOCFILE("..\PROJETOS\MICROUNIVERSO\MENUS\MENU" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENU?")
 
 
 *       *********************************************************
 *       *                                                         
-*       * _6J112UCWH  ON SELECTION PAD                            
+*       * _6J20PGT49  ON SELECTION PAD                            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -64,13 +64,13 @@ ON SELECTION BAR 2 OF vistosapro ;
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _6j112ucwh
+PROCEDURE _6j20pgt49
 DO FORM \Projetos\MicroUniverso\Forms\CadastroUsuario
 
 
 *       *********************************************************
 *       *                                                         
-*       * _6J112UCWI  ON SELECTION PAD                            
+*       * _6J20PGT4A  ON SELECTION PAD                            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -81,14 +81,14 @@ DO FORM \Projetos\MicroUniverso\Forms\CadastroUsuario
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _6j112ucwi
+PROCEDURE _6j20pgt4a
 CLEAR EVENTS
 QUIT
 
 
 *       *********************************************************
 *       *                                                         
-*       * _6J112UCWJ  ON SELECTION BAR 1 OF POPUP vistosapro      
+*       * _6J20PGT4B  ON SELECTION BAR 1 OF POPUP vistosapro      
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -99,13 +99,13 @@ QUIT
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _6j112ucwj
+PROCEDURE _6j20pgt4b
 DO FORM \Projetos\MicroUniverso\Forms\FaixaValoresVistosAprovacoes
 
 
 *       *********************************************************
 *       *                                                         
-*       * _6J112UCWK  ON SELECTION BAR 2 OF POPUP vistosapro      
+*       * _6J20PGT4C  ON SELECTION BAR 2 OF POPUP vistosapro      
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -116,5 +116,5 @@ DO FORM \Projetos\MicroUniverso\Forms\FaixaValoresVistosAprovacoes
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _6j112ucwk
+PROCEDURE _6j20pgt4c
 DO FORM \Projetos\MicroUniverso\Forms\movimentacaonotasfiscais
