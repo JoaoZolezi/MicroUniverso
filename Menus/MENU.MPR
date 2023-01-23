@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 21/01/2023             MENU.MPR               17:53:51  
+*       * 23/01/2023             MENU.MPR               07:46:02  
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -26,39 +26,34 @@
 SET SYSMENU TO
 SET SYSMENU AUTOMATIC
 
-DEFINE PAD _6j212czae OF _MSYSMENU PROMPT "Cadastro Usuário" COLOR SCHEME 3 ;
+DEFINE PAD _6j40gnc6c OF _MSYSMENU PROMPT "Cadastro Usuário" COLOR SCHEME 3 ;
 	KEY ALT+C, ""
-DEFINE PAD _6j212czaf OF _MSYSMENU PROMPT "Vistos/Aprovações Notas Fiscais" COLOR SCHEME 3 ;
+DEFINE PAD _6j40gnc6d OF _MSYSMENU PROMPT "Vistos/Aprovações Notas Fiscais" COLOR SCHEME 3 ;
 	KEY ALT+V, ""
-DEFINE PAD _6j212czag OF _MSYSMENU PROMPT "Usuario" COLOR SCHEME 3 ;
-	KEY ALT+U, ""
-DEFINE PAD _6j212czah OF _MSYSMENU PROMPT "Sair" COLOR SCHEME 3 ;
+DEFINE PAD _6j40gnc6e OF _MSYSMENU PROMPT "Sair" COLOR SCHEME 3 ;
 	KEY ALT+S, ""
-ON SELECTION PAD _6j212czae OF _MSYSMENU ;
-	DO _6j212czai ;
+ON SELECTION PAD _6j40gnc6c OF _MSYSMENU ;
+	DO _6j40gnc6f ;
 	IN LOCFILE("..\PROJETOS\MICROUNIVERSO\MENUS\MENU" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENU?")
-ON PAD _6j212czaf OF _MSYSMENU ACTIVATE POPUP vistosapro
-ON SELECTION PAD _6j212czag OF _MSYSMENU ;
-	DO _6j212czaj ;
-	IN LOCFILE("..\PROJETOS\MICROUNIVERSO\MENUS\MENU" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENU?")
-ON SELECTION PAD _6j212czah OF _MSYSMENU ;
-	DO _6j212czak ;
+ON PAD _6j40gnc6d OF _MSYSMENU ACTIVATE POPUP vistosapro
+ON SELECTION PAD _6j40gnc6e OF _MSYSMENU ;
+	DO _6j40gnc6g ;
 	IN LOCFILE("..\PROJETOS\MICROUNIVERSO\MENUS\MENU" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENU?")
 
 DEFINE POPUP vistosapro MARGIN RELATIVE SHADOW COLOR SCHEME 4
 DEFINE BAR 1 OF vistosapro PROMPT "Faixa Vistos Aprovacoes"
 DEFINE BAR 2 OF vistosapro PROMPT "Aprovacao Notas Fiscais"
 ON SELECTION BAR 1 OF vistosapro ;
-	DO _6j212czal ;
+	DO _6j40gnc6h ;
 	IN LOCFILE("..\PROJETOS\MICROUNIVERSO\MENUS\MENU" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENU?")
 ON SELECTION BAR 2 OF vistosapro ;
-	DO _6j212czam ;
+	DO _6j40gnc6i ;
 	IN LOCFILE("..\PROJETOS\MICROUNIVERSO\MENUS\MENU" ,"MPX;MPR|FXP;PRG" ,"WHERE is MENU?")
 
 
 *       *********************************************************
 *       *                                                         
-*       * _6J212CZAI  ON SELECTION PAD                            
+*       * _6J40GNC6F  ON SELECTION PAD                            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -69,74 +64,57 @@ ON SELECTION BAR 2 OF vistosapro ;
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _6j212czai
+PROCEDURE _6j40gnc6f
 DO FORM \Projetos\MicroUniverso\Forms\CadastroUsuario
 
 
 *       *********************************************************
 *       *                                                         
-*       * _6J212CZAJ  ON SELECTION PAD                            
+*       * _6J40GNC6G  ON SELECTION PAD                            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
 *       * From Menu:  MENU.MPR,            Record:    8           
 *       * Called By:  ON SELECTION PAD                            
-*       * Prompt:     Usuario                                     
+*       * Prompt:     Sair                                        
 *       * Snippet:    2                                           
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _6j212czaj
-DO FORM \Projetos\MicroUniverso\Forms\Usuario
-
-
-*       *********************************************************
-*       *                                                         
-*       * _6J212CZAK  ON SELECTION PAD                            
-*       *                                                         
-*       * Procedure Origin:                                       
-*       *                                                         
-*       * From Menu:  MENU.MPR,            Record:    9           
-*       * Called By:  ON SELECTION PAD                            
-*       * Prompt:     Sair                                        
-*       * Snippet:    3                                           
-*       *                                                         
-*       *********************************************************
-*
-PROCEDURE _6j212czak
+PROCEDURE _6j40gnc6g
 CLEAR EVENTS
 QUIT
 
 
 *       *********************************************************
 *       *                                                         
-*       * _6J212CZAL  ON SELECTION BAR 1 OF POPUP vistosapro      
+*       * _6J40GNC6H  ON SELECTION BAR 1 OF POPUP vistosapro      
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
 *       * From Menu:  MENU.MPR,            Record:    6           
 *       * Called By:  ON SELECTION BAR 1 OF POPUP vistosapro      
 *       * Prompt:     Faixa Vistos Aprovacoes                     
-*       * Snippet:    4                                           
+*       * Snippet:    3                                           
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _6j212czal
+PROCEDURE _6j40gnc6h
 DO FORM \Projetos\MicroUniverso\Forms\FaixaValoresVistosAprovacoes
 
 
 *       *********************************************************
 *       *                                                         
-*       * _6J212CZAM  ON SELECTION BAR 2 OF POPUP vistosapro      
+*       * _6J40GNC6I  ON SELECTION BAR 2 OF POPUP vistosapro      
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
 *       * From Menu:  MENU.MPR,            Record:    7           
 *       * Called By:  ON SELECTION BAR 2 OF POPUP vistosapro      
 *       * Prompt:     Aprovacao Notas Fiscais                     
-*       * Snippet:    5                                           
+*       * Snippet:    4                                           
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _6j212czam
+PROCEDURE _6j40gnc6i
 DO FORM \Projetos\MicroUniverso\Forms\movimentacaonotasfiscais
